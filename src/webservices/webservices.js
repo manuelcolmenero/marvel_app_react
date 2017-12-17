@@ -4,9 +4,9 @@ import * as constants from 'marvel_app_react/src/webservices/constants'
 
 // Funciones configuración conexión
 export function configureAxios() {
-    axios.defaults.baseURL = GLOBAL_BASEURL_MARVEL_GATEWAY
+    axios.defaults.baseURL = constants.GLOBAL_BASEURL_MARVEL_GATEWAY
     axios.defaults.headers.post['Content-Type'] = 'application/json'
-    axios.defaults.headers.common['Referer'] = GLOBAL_APPURL_REFERER
+    axios.defaults.headers.common['Referer'] = constants.GLOBAL_APPURL_REFERER
 }
 
 // Función de listado

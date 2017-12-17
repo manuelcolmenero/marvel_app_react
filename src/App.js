@@ -15,13 +15,12 @@ import thunk from 'redux-thunk'
 import { colors } from 'marvel_app_react/src/commons'
 
 // - Sections
-//import CharactersList from 'marvel_app_react/src/sections/characters/CharactersList'
+import CharactersList from 'marvel_app_react/src/sections/characters/CharactersList'
 
 // - Webservices
 import * as webservices from 'marvel_app_react/src/webservices/webservices'
 
 // - Reducers
-/*
 import * as reducers from './redux/reducers'
 
 const reducer = combineReducers(reducers) // Se combinan los reducers
@@ -29,7 +28,6 @@ const store = createStore( // Se crea el store con:
     reducer, // Reducer propio
     applyMiddleware(thunk) // Middleware propio
 )
-*/
 
 /* ****************************************** */
 /* C L A S S */
@@ -39,7 +37,7 @@ export default class App extends Component {
 
     // Lo primero que se hace es configurar la conexión y el diseño de la aplicación
     componentWillMount() {
-        //webservices.configureAxios()
+        webservices.configureAxios()
         StatusBar.setBarStyle('light-content')
 
     }
@@ -47,7 +45,7 @@ export default class App extends Component {
     // Se ejecuta la aplicación
     render() {
         return (
-            /*
+            
             <Provider store={store} >
                 <Router>
                     <Scene key="root">
@@ -59,7 +57,6 @@ export default class App extends Component {
                     </Scene>
                 </Router>
             </Provider>
-            */
         );
     }
 }
