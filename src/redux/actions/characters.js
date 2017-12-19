@@ -1,6 +1,8 @@
 import * as types from '../types/characters'
-import * as constants from 'marvel_app_react/src/commons/constants'
-import { fetch, post } from 'react_native_app/src/webservices/webservices'
+import { fetch, post } from 'marvel_app_react/src/webservices/webservices'
+
+import { constants, apikey } from 'marvel_app_react/src/commons'
+
 
 // Funcion que devuelve el action que actualiza
 function updateCharactersList(value) {
@@ -25,25 +27,29 @@ export function updateCharactersSelected(value) {
 }
 
 // Función para cargar el WS del listado
-export function fetchCharactersList(publicApiKey) {
+export function fetchCharactersList() {
     return (dispatch, getState) => {
 
         dispatch(setCharactersFetching(true))
 
         // Se obtiene el listado de personajes de forma asincrona
-        const fetchUrl = constants.FETCH_URL_CHARACTERS_LIST + publicApiKey
+        const fetchUrl = constants.FETCH_URL_CHARACTERS_LIST +
+            constants.FETCH_URL_APIKEY + apikey.APIKEY
 
-        fetch(fetchURL).then(response => {
-            dispatch(setCharactersFetching(false))
-            console.log("fetch response: ", response)
-            const list = response.records
+        fetch(fetchUrl)
+            .then(response => {
+                dispatch(setCharactersFetching(false))
+                // console.log("fetchCharactersList response: ", response.data.results)
 
-            // Segunda llamada al dispatch es para devolver los datos recuperados 
-            // al reducer
-            dispatch(updateCharactersList(list))
-        }).catch(error => {
-            dispatch(setCharactersFetching(false))
-            console.log("error: ", error)
-        })
+                const list = response.data.results
+
+                // Segunda llamada al dispatch es para devolver los datos recuperados 
+                // al reducer
+                dispatch(updateCharactersList(list))
+            })
+            .catch(error => {
+                dispatch(setCharactersFetching(false))
+                // console.log("fetchCharactersList error: ", error)
+            })
     }
 }
