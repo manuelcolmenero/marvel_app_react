@@ -3,7 +3,7 @@
 /* ****************************************** */
 // Imports REACT
 import React, { Component } from 'react';
-import { View, StyleSheet, StatusBar, Text } from 'react-native';
+import { View, StyleSheet, StatusBar, Text, TouchableOpacity } from 'react-native';
 import { Actions, Scene, Router } from 'react-native-router-flux';
 
 // Imports REDUX
@@ -16,6 +16,7 @@ import { colors } from 'marvel_app_react/src/commons'
 
 // - Sections
 import CharactersList from 'marvel_app_react/src/sections/characters/CharactersList'
+import CharactersNew from 'marvel_app_react/src/sections/characters/CharactersNew'
 
 // - Webservices
 import * as webservices from 'marvel_app_react/src/webservices/webservices'
@@ -42,17 +43,39 @@ export default class App extends Component {
 
     }
 
+    // Se incluye el boton de añadir personajes
+    renderAddCharacterButton() {
+        return (
+            <TouchableOpacity
+                style={styles.addButton}
+                onPress={() => Actions.CharactersNew()} >
+
+                <Text style={styles.addButtonText}>{'Añadir'}</Text>
+            </TouchableOpacity>
+        )
+
+    }
+
     // Se ejecuta la aplicación
     render() {
         return (
-            
+
             <Provider store={store} >
                 <Router>
                     <Scene key="root">
                         <Scene
                             key={'CharactersList'}
                             component={CharactersList}
-                            hideNavBar
+                            navigationBarStyle={styles.navBar}
+                            navBarButtonColor={colors.white}
+                            renderRightButton={() => this.renderAddCharacterButton()}
+                        />
+                        <Scene
+                            key={'CharactersNew'}
+                            component={CharactersNew}
+                            navigationBarStyle={styles.navBar}
+                            navBarButtonColor={colors.white}
+                            title={'Nuevo Personaje'}
                         />
                     </Scene>
                 </Router>
@@ -69,4 +92,14 @@ const styles = StyleSheet.create({
     navBar: {
         backgroundColor: colors.navBarbackground,
     },
+    addButtonText: {
+        color: colors.white,
+        fontSize: 16,
+        fontWeight: '600',
+    },
+    addButton: {
+        padding: 10,
+        alignItems: 'center',
+        justifyContent: 'center',
+    }
 });
