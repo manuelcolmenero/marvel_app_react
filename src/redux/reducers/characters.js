@@ -8,10 +8,7 @@ const initialState = {
 
 // Se devuelve desde el action las propiedades (Type y Value) para ser tratados por el reducer
 export default function reducer(state = initialState, action = {}) {
-    console.log('types: ', action.type)
     switch (action.type) {
-
-        
         // Se pregunta por el Type recibido del action
         case types.CHARACTERS_UPDATE_LIST:
             return {
@@ -21,7 +18,7 @@ export default function reducer(state = initialState, action = {}) {
         case types.CHARACTERS_UPDATE_CHARACTER:
             return {
                 ...state,
-                item: action.value
+                item: action.character
             }
         case types.CHARACTERS_SET_FETCHING:
             return {

@@ -1,4 +1,6 @@
-// Imports
+/* ****************************************** */
+/* I M P O R T S */
+/* ****************************************** */
 import React, { Component } from 'react';
 import { Platform, View, StyleSheet, TouchableOpacity, Text, Image } from 'react-native';
 
@@ -16,10 +18,12 @@ export default class CharactersCell extends Component {
 
         // Se validan los datos a pintar
         const name = item.name ? item.name : ''
+        // Para la imagen se cambia la que se recibe por defecto y se utiliza la landscape_large
         const thumbnail = item.thumbnail ? { uri: item.thumbnail.path + '/landscape_large.' + item.thumbnail.extension } : null
 
         return (
-            <TouchableOpacity>
+            // Se genera una celda pulsable para poder ir al detalle
+            <TouchableOpacity onPress={() => onSelect(item)}>
                 <Image source={thumbnail} style={styles.imageStyle} resizeMode={'cover'}/>
                 <View style={styles.containerStyle}>
                     <Text style={styles.nameStyle}> {name}</Text>

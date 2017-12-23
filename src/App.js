@@ -16,6 +16,7 @@ import { colors } from 'marvel_app_react/src/commons'
 
 // - Sections
 import CharactersList from 'marvel_app_react/src/sections/characters/CharactersList'
+import CharactersView from 'marvel_app_react/src/sections/characters/CharactersView'
 import CharactersNew from 'marvel_app_react/src/sections/characters/CharactersNew'
 
 // - Webservices
@@ -69,6 +70,12 @@ export default class App extends Component {
                             navigationBarStyle={styles.navBar}
                             navBarButtonColor={colors.white}
                             renderRightButton={() => this.renderAddCharacterButton()}
+                        />
+                        <Scene
+                            key={'CharactersView'}
+                            component={CharactersView}
+                            navigationBarStyle={styles.navBar}
+                            navBarButtonColor={colors.white}
                         />
                         <Scene
                             key={'CharactersNew'}

@@ -35,16 +35,20 @@ class CharactersList extends Component {
         this.props.fetchCharactersList()
     }
 
-    renderItem(item, index) {
 
-        // Se devuelve la celda pasando primero los datos del componente padre al hijo
-        // Se recibe un valor (Por ejemplo, nameHouse) y se lo pasa el onSelect de HousesCell 
-        // Con los datos recibidos se llama a la función onSelect del padre (HousesList)
+    renderItem(item, index) {
         return (
             <CharactersCell
                 item={item}
-            //onSelect={(value) => this.onSelect(value)}
-            />)
+                onSelect={(character) => this.onSelect(character)}
+            />
+        )
+    }
+
+
+    onSelect(character) {
+        // Pretende actualizar que casa está marcada al pulsar
+        this.props.updateSelected(character)
     }
 
     render() {
@@ -53,10 +57,10 @@ class CharactersList extends Component {
 
             <View style={styles.container}>
                 <FlatList
-                    data={this.props.list}
-                    renderItem={({ item, index }) => this.renderItem(item, index)}
-                    keyExtractor={(item, index) => item.id}
-                    extraData={this.state}
+                    data          = {this.props.list}
+                    renderItem    = {({ item, index }) => this.renderItem(item, index)}
+                    keyExtractor  = {(item, index)     => index}
+                    extraData     = {this.props}
                 />
             </View>
         )
@@ -75,6 +79,10 @@ const mapDispatchToProps = (dispatch, props) => {
         // Se declara una función con un dispatch de la action de obtener datos
         fetchCharactersList: () => {
             dispatch(CharactersActions.fetchCharactersList())
+        },
+        updateSelected: (character) => {
+            dispatch(CharactersActions.updateCharactersSelected(character))
+            Actions.CharactersView({ title: character.name })
         },
     }
 }

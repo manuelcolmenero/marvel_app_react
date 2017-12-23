@@ -19,10 +19,12 @@ function setCharactersFetching(value) {
     }
 }
 
-export function updateCharactersSelected(value) {
+export function updateCharactersSelected(character) {
+
+    console.log('updateCharactersSelected character:', character)
     return {
         type: types.CHARACTERS_UPDATE_CHARACTER,
-        value: value
+        character: character
     }
 }
 
