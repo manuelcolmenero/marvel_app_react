@@ -16,11 +16,11 @@ export default class CharactersCell extends Component {
 
         // Se validan los datos a pintar
         const name = item.name ? item.name : ''
-        const thumbnail = item.thumbnail ? { uri: item.thumbnail.path + '/landscape_small.' + item.thumbnail.extension } : null
+        const thumbnail = item.thumbnail ? { uri: item.thumbnail.path + '/landscape_large.' + item.thumbnail.extension } : null
 
         return (
             <TouchableOpacity>
-                <Image source={thumbnail} style={styles.imageStyle} resizeMode={'cover'} />
+                <Image source={thumbnail} style={styles.imageStyle} resizeMode={'cover'}/>
                 <View style={styles.containerStyle}>
                     <Text style={styles.nameStyle}> {name}</Text>
                 </View>
@@ -34,8 +34,7 @@ export default class CharactersCell extends Component {
 const styles = StyleSheet.create({
 
     imageStyle: {
-        width: '100%',
-        height: 150,
+        height: 250,
     },
 
     containerStyle: {
