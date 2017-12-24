@@ -28,4 +28,4 @@ No se encuentra subido al repositorio el fichero con la clave del API Marvel. Pa
 ### Portrait
 Listado Personajes | Detalle de personaje
 ------------ | ------------- 
-<img src = "https://github.com/manuelcolmenero/marvel_app_react/blob/master/screenshots/port/CharacterList.png" width="250px"> | <img src = "https://github.com/manuelcolmenero/marvel_app_react/blob/master/screenshots/port/CharacterDetail.png" width="250px"> 
+<img src = "https://github.com/manuelcolmenero/marvel_app_react/blob/master/screenshots/CharacterList.png" width="250px"> | <img src = "https://github.com/manuelcolmenero/marvel_app_react/blob/master/screenshots/CharacterDetail.png" width="250px"> 
