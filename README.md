@@ -23,9 +23,9 @@ La aplicación debe de cumplir los siguientes requisitos mínimos:
 ## **Notas**
 No se encuentra subido al repositorio el fichero con la clave del API Marvel. Para que la aplicación funcione se ha de incluir dicho fichero de la siguiente forma:
 
+- - -
 
-## Pantallas
-### Portrait
-Listado Personajes | Detalle de personaje
------------- | ------------- 
-<img src = "https://github.com/manuelcolmenero/marvel_app_react/blob/master/screenshots/CharacterList.png" width="250px"> | <img src = "https://github.com/manuelcolmenero/marvel_app_react/blob/master/screenshots/CharacterDetail.png" width="250px"> 
+## **Pantallas**
+Listado Personajes | Detalle de personaje | Nuevo de personaje | Aviso nuevo personaje
+------------ | ------------- | ------------- | ------------- 
+<img src = "https://github.com/manuelcolmenero/marvel_app_react/blob/master/screenshots/CharacterList.png" width="250px"> | <img src = "https://github.com/manuelcolmenero/marvel_app_react/blob/master/screenshots/CharacterDetail.png" width="250px"> | <img src = "https://github.com/manuelcolmenero/marvel_app_react/blob/master/screenshots/CharacterNew.png" width="250px"> | <img src = "https://github.com/manuelcolmenero/marvel_app_react/blob/master/screenshots/CharacterNewAlert.png" width="250px"> 
